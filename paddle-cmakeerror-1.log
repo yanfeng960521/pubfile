@@ -1,0 +1,297 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /root/Paddle/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_095b1/fast && /usr/bin/make  -f CMakeFiles/cmTC_095b1.dir/build.make CMakeFiles/cmTC_095b1.dir/build
+make[1]: Entering directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_095b1.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_095b1.dir/src.c.o   -c /root/Paddle/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_095b1
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_095b1.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_095b1.dir/src.c.o  -o cmTC_095b1 
+CMakeFiles/cmTC_095b1.dir/src.c.o: In function `main':
+src.c:(.text+0x48): undefined reference to `pthread_create'
+src.c:(.text+0x50): undefined reference to `pthread_detach'
+src.c:(.text+0x5c): undefined reference to `pthread_join'
+src.c:(.text+0x6c): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_095b1.dir/build.make:89: recipe for target 'cmTC_095b1' failed
+make[1]: *** [cmTC_095b1] Error 1
+make[1]: Leaving directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Makefile:124: recipe for target 'cmTC_095b1/fast' failed
+make: *** [cmTC_095b1/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /root/Paddle/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_baf31/fast && /usr/bin/make  -f CMakeFiles/cmTC_baf31.dir/build.make CMakeFiles/cmTC_baf31.dir/build
+make[1]: Entering directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_baf31.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_baf31.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_baf31
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_baf31.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_baf31.dir/CheckFunctionExists.c.o  -o cmTC_baf31  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_baf31.dir/build.make:89: recipe for target 'cmTC_baf31' failed
+make[1]: *** [cmTC_baf31] Error 1
+make[1]: Leaving directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Makefile:124: recipe for target 'cmTC_baf31/fast' failed
+make: *** [cmTC_baf31/fast] Error 2
+
+
+
+Performing C++ SOURCE FILE Test MMX_FOUND failed with the following output:
+Change Dir: /root/Paddle/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4f944/fast && /usr/bin/make  -f CMakeFiles/cmTC_4f944.dir/build.make CMakeFiles/cmTC_4f944.dir/build
+make[1]: Entering directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_4f944.dir/src.cxx.o
+/usr/bin/c++    -Wno-error=deprecated-declarations -Wno-deprecated-declarations -DMMX_FOUND -mmmx   -o CMakeFiles/cmTC_4f944.dir/src.cxx.o -c /root/Paddle/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option ‘-mmmx’
+CMakeFiles/cmTC_4f944.dir/build.make:68: recipe for target 'CMakeFiles/cmTC_4f944.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_4f944.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Makefile:124: recipe for target 'cmTC_4f944/fast' failed
+make: *** [cmTC_4f944/fast] Error 2
+
+
+...and run output:
+
+Return value: 1
+Source file was:
+
+#include <mmintrin.h>
+int main()
+{
+    _mm_setzero_si64();
+    return 0;
+}
+Performing C++ SOURCE FILE Test SSE2_FOUND failed with the following output:
+Change Dir: /root/Paddle/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e72cd/fast && /usr/bin/make  -f CMakeFiles/cmTC_e72cd.dir/build.make CMakeFiles/cmTC_e72cd.dir/build
+make[1]: Entering directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e72cd.dir/src.cxx.o
+/usr/bin/c++    -Wno-error=deprecated-declarations -Wno-deprecated-declarations -DSSE2_FOUND -msse2   -o CMakeFiles/cmTC_e72cd.dir/src.cxx.o -c /root/Paddle/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option ‘-msse2’
+CMakeFiles/cmTC_e72cd.dir/build.make:68: recipe for target 'CMakeFiles/cmTC_e72cd.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_e72cd.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Makefile:124: recipe for target 'cmTC_e72cd/fast' failed
+make: *** [cmTC_e72cd/fast] Error 2
+
+
+...and run output:
+
+Return value: 1
+Source file was:
+
+#include <emmintrin.h>
+int main()
+{
+    _mm_setzero_si128();
+    return 0;
+}
+Performing C++ SOURCE FILE Test SSE3_FOUND failed with the following output:
+Change Dir: /root/Paddle/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_126fd/fast && /usr/bin/make  -f CMakeFiles/cmTC_126fd.dir/build.make CMakeFiles/cmTC_126fd.dir/build
+make[1]: Entering directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_126fd.dir/src.cxx.o
+/usr/bin/c++    -Wno-error=deprecated-declarations -Wno-deprecated-declarations -DSSE3_FOUND -msse3   -o CMakeFiles/cmTC_126fd.dir/src.cxx.o -c /root/Paddle/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option ‘-msse3’
+CMakeFiles/cmTC_126fd.dir/build.make:68: recipe for target 'CMakeFiles/cmTC_126fd.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_126fd.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Makefile:124: recipe for target 'cmTC_126fd/fast' failed
+make: *** [cmTC_126fd/fast] Error 2
+
+
+...and run output:
+
+Return value: 1
+Source file was:
+
+#include <pmmintrin.h>
+int main()
+{
+    __m128d a = _mm_set1_pd(6.28);
+    __m128d b = _mm_set1_pd(3.14);
+    __m128d result = _mm_addsub_pd(a, b);
+    result = _mm_movedup_pd(result);
+    return 0;
+}
+Performing C++ SOURCE FILE Test AVX_FOUND failed with the following output:
+Change Dir: /root/Paddle/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ca689/fast && /usr/bin/make  -f CMakeFiles/cmTC_ca689.dir/build.make CMakeFiles/cmTC_ca689.dir/build
+make[1]: Entering directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ca689.dir/src.cxx.o
+/usr/bin/c++    -Wno-error=deprecated-declarations -Wno-deprecated-declarations -DAVX_FOUND -mavx   -o CMakeFiles/cmTC_ca689.dir/src.cxx.o -c /root/Paddle/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option ‘-mavx’
+CMakeFiles/cmTC_ca689.dir/build.make:68: recipe for target 'CMakeFiles/cmTC_ca689.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_ca689.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Makefile:124: recipe for target 'cmTC_ca689/fast' failed
+make: *** [cmTC_ca689/fast] Error 2
+
+
+...and run output:
+
+Return value: 1
+Source file was:
+
+#include <immintrin.h>
+int main()
+{
+    __m256 a = _mm256_set_ps (-1.0f, 2.0f, -3.0f, 4.0f, -1.0f, 2.0f, -3.0f, 4.0f);
+    __m256 b = _mm256_set_ps (1.0f, 2.0f, 3.0f, 4.0f, 1.0f, 2.0f, 3.0f, 4.0f);
+    __m256 result = _mm256_add_ps (a, b);
+    return 0;
+}
+Performing C++ SOURCE FILE Test AVX2_FOUND failed with the following output:
+Change Dir: /root/Paddle/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_968e4/fast && /usr/bin/make  -f CMakeFiles/cmTC_968e4.dir/build.make CMakeFiles/cmTC_968e4.dir/build
+make[1]: Entering directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_968e4.dir/src.cxx.o
+/usr/bin/c++    -Wno-error=deprecated-declarations -Wno-deprecated-declarations -DAVX2_FOUND -mavx2   -o CMakeFiles/cmTC_968e4.dir/src.cxx.o -c /root/Paddle/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option ‘-mavx2’
+CMakeFiles/cmTC_968e4.dir/build.make:68: recipe for target 'CMakeFiles/cmTC_968e4.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_968e4.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Makefile:124: recipe for target 'cmTC_968e4/fast' failed
+make: *** [cmTC_968e4/fast] Error 2
+
+
+...and run output:
+
+Return value: 1
+Source file was:
+
+#include <immintrin.h>
+int main()
+{
+    __m256i a = _mm256_set_epi32 (-1, 2, -3, 4, -1, 2, -3, 4);
+    __m256i result = _mm256_abs_epi32 (a);
+    return 0;
+}
+Performing C++ SOURCE FILE Test AVX512F_FOUND failed with the following output:
+Change Dir: /root/Paddle/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6c816/fast && /usr/bin/make  -f CMakeFiles/cmTC_6c816.dir/build.make CMakeFiles/cmTC_6c816.dir/build
+make[1]: Entering directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6c816.dir/src.cxx.o
+/usr/bin/c++    -Wno-error=deprecated-declarations -Wno-deprecated-declarations -DAVX512F_FOUND -mavx512f   -o CMakeFiles/cmTC_6c816.dir/src.cxx.o -c /root/Paddle/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option ‘-mavx512f’
+CMakeFiles/cmTC_6c816.dir/build.make:68: recipe for target 'CMakeFiles/cmTC_6c816.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_6c816.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Makefile:124: recipe for target 'cmTC_6c816/fast' failed
+make: *** [cmTC_6c816/fast] Error 2
+
+
+...and run output:
+
+Return value: 1
+Source file was:
+
+#include <immintrin.h>
+int main()
+{
+    __m512i a = _mm512_set_epi32 (-1, 2, -3, 4, -1, 2, -3, 4,
+                                  13, -5, 6, -7, 9, 2, -6, 3);
+    __m512i result = _mm512_abs_epi32 (a);
+    return 0;
+}
+Performing C SOURCE FILE Test C_COMPILER_SUPPORT_FLAG__Wnon_virtual_dtor failed with the following output:
+Change Dir: /root/Paddle/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4db7d/fast && /usr/bin/make  -f CMakeFiles/cmTC_4db7d.dir/build.make CMakeFiles/cmTC_4db7d.dir/build
+make[1]: Entering directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4db7d.dir/src.c.o
+/usr/bin/cc   -fPIC -fno-omit-frame-pointer -Werror -Wall -Wextra -DC_COMPILER_SUPPORT_FLAG__Wnon_virtual_dtor   -Wnon-virtual-dtor -o CMakeFiles/cmTC_4db7d.dir/src.c.o   -c /root/Paddle/build/CMakeFiles/CMakeTmp/src.c
+cc1: error: command line option '-Wnon-virtual-dtor' is valid for C++/ObjC++ but not for C [-Werror]
+cc1: all warnings being treated as errors
+CMakeFiles/cmTC_4db7d.dir/build.make:68: recipe for target 'CMakeFiles/cmTC_4db7d.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_4db7d.dir/src.c.o] Error 1
+make[1]: Leaving directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Makefile:124: recipe for target 'cmTC_4db7d/fast' failed
+make: *** [cmTC_4db7d/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test C_COMPILER_SUPPORT_FLAG__Wdelete_non_virtual_dtor failed with the following output:
+Change Dir: /root/Paddle/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f53c7/fast && /usr/bin/make  -f CMakeFiles/cmTC_f53c7.dir/build.make CMakeFiles/cmTC_f53c7.dir/build
+make[1]: Entering directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f53c7.dir/src.c.o
+/usr/bin/cc   -fPIC -fno-omit-frame-pointer -Werror -Wall -Wextra -DC_COMPILER_SUPPORT_FLAG__Wdelete_non_virtual_dtor   -Wdelete-non-virtual-dtor -o CMakeFiles/cmTC_f53c7.dir/src.c.o   -c /root/Paddle/build/CMakeFiles/CMakeTmp/src.c
+cc1: error: command line option '-Wdelete-non-virtual-dtor' is valid for C++/ObjC++ but not for C [-Werror]
+cc1: all warnings being treated as errors
+CMakeFiles/cmTC_f53c7.dir/build.make:68: recipe for target 'CMakeFiles/cmTC_f53c7.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_f53c7.dir/src.c.o] Error 1
+make[1]: Leaving directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Makefile:124: recipe for target 'cmTC_f53c7/fast' failed
+make: *** [cmTC_f53c7/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test C_COMPILER_SUPPORT_FLAG__Wno_error_parentheses_equality failed with the following output:
+Change Dir: /root/Paddle/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_a2775/fast && /usr/bin/make  -f CMakeFiles/cmTC_a2775.dir/build.make CMakeFiles/cmTC_a2775.dir/build
+make[1]: Entering directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a2775.dir/src.c.o
+/usr/bin/cc   -fPIC -fno-omit-frame-pointer -Werror -Wall -Wextra -Wno-unused-parameter -Wno-unused-function -Wno-error=literal-suffix -Wno-error=unused-local-typedefs -DC_COMPILER_SUPPORT_FLAG__Wno_error_parentheses_equality   -Wno-error=parentheses-equality -o CMakeFiles/cmTC_a2775.dir/src.c.o   -c /root/Paddle/build/CMakeFiles/CMakeTmp/src.c
+cc1: error: -Werror=parentheses-equality: no option -Wparentheses-equality
+CMakeFiles/cmTC_a2775.dir/build.make:68: recipe for target 'CMakeFiles/cmTC_a2775.dir/src.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_a2775.dir/src.c.o] Error 1
+make[1]: Leaving directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Makefile:124: recipe for target 'cmTC_a2775/fast' failed
+make: *** [cmTC_a2775/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_COMPILER_SUPPORT_FLAG__Wno_error_parentheses_equality failed with the following output:
+Change Dir: /root/Paddle/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4fd34/fast && /usr/bin/make  -f CMakeFiles/cmTC_4fd34.dir/build.make CMakeFiles/cmTC_4fd34.dir/build
+make[1]: Entering directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_4fd34.dir/src.cxx.o
+/usr/bin/c++    -Wno-error=deprecated-declarations -Wno-deprecated-declarations -std=c++14 -fPIC -fno-omit-frame-pointer -Werror -Wall -Wextra -Wnon-virtual-dtor -Wdelete-non-virtual-dtor -Wno-unused-parameter -Wno-unused-function -Wno-error=literal-suffix -Wno-error=unused-local-typedefs -DCXX_COMPILER_SUPPORT_FLAG__Wno_error_parentheses_equality   -Wno-error=parentheses-equality -o CMakeFiles/cmTC_4fd34.dir/src.cxx.o -c /root/Paddle/build/CMakeFiles/CMakeTmp/src.cxx
+cc1plus: error: -Werror=parentheses-equality: no option -Wparentheses-equality
+CMakeFiles/cmTC_4fd34.dir/build.make:68: recipe for target 'CMakeFiles/cmTC_4fd34.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_4fd34.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/root/Paddle/build/CMakeFiles/CMakeTmp'
+Makefile:124: recipe for target 'cmTC_4fd34/fast' failed
+make: *** [cmTC_4fd34/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
